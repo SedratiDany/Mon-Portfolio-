@@ -12,7 +12,7 @@
         --carousel-image-height: 600px;
         --carousel-image-width-mobile: 480px;
         --carousel-image-height-mobile: 320px;
-        --related-block-top: 1450px;
+        --related-block-top: 960px;
 
         /* Variables pour les flèches (ajustables ici) */
         --nav-circle-size: 40px;
@@ -675,6 +675,11 @@
             background-position: center;
             transition: all 0.4s ease;
             position: relative;
+        }
+
+        .portfolio-image.booska-p-image {
+            background-size: contain !important;
+            background-color: #f1f1f1;
         }
 
         .portfolio-item:hover .portfolio-image {
@@ -2157,7 +2162,7 @@
     </div>
     </div>
     <div class="portfolio-grid">
-        <div class="portfolio-item tall-item" onclick="openModal('project1')">
+        <div class="portfolio-item" onclick="openModal('project1')">
       <div class="portfolio-image" style="background-image: url('oui.png');"></div>
       <div class="portfolio-overlay">
        <div class="portfolio-title">
@@ -2165,6 +2170,17 @@
        </div>
        <div class="portfolio-category">
         Création De Contenu Média
+       </div>
+      </div>
+     </div>
+     <div class="portfolio-item" onclick="openModal('project8')">
+      <div class="portfolio-image booska-p-image" style="background-image: url('channels4_profile.jpg');"></div>
+      <div class="portfolio-overlay">
+       <div class="portfolio-title">
+        Booska-P
+       </div>
+       <div class="portfolio-category">
+        social média éditor & journalism
        </div>
       </div>
      </div>
@@ -2323,7 +2339,7 @@
       <div class="modal-skills" id="modalSkills"></div>
       <div class="modal-competences" id="modalCompetences"></div>
       <section class="modal-additional-projects">
-       <h2>PROJETS LIÉES</h2>
+       <h2>PROJETS LIÉS</h2>
        <div class="modal-projects-container" id="modalProjectsContainer">
         <!-- Les projets liés seront ajoutés ici dynamiquement -->
        </div>
@@ -2485,6 +2501,27 @@
                     'Gestion de Flux Vidéo'
                 ],
                 relatedProjects: ['project1', 'project6']  // Exemple pour project7
+            },
+            project8: {
+                title: "Booska-P",
+                description: "Je suis actuellement en stage chez Booska-P en tant que journaliste et social media editor. J’y réalise du contenu pour TikTok et Instagram, notamment à partir d’une veille quotidienne sur l’actualité musicale. J’ai publié plusieurs articles et je me suis aussi occupé du format Flash Rap, un rendez-vous quotidien dont le but est de mettre en avant des artistes et les dernières actualités rap. Enfin, j’ai réalisé un reportage sur l’association Que de l’Amour, créée par Ghost Killer Track pour aider les enfants en situation de handicap.",
+                images: [
+                    "booska-que-de-lamour.png",
+                    "booska-flash-rap.jpg",
+                    "booska-kagurabachi.jpg"
+                ],
+                softwares: [
+                    { abbr: 'Pr', class: 'premiere', title: 'Premiere Pro' },
+                    { abbr: 'Ae', class: 'after-effects', title: 'After Effects' },
+                    { abbr: 'Pr', class: 'premiere', title: 'Premiere Pro' }
+                ],
+                competences: [
+                    'Écriture',
+                    'Journalisme',
+                    'Montage',
+                    'Veille'
+                ],
+                relatedProjects: ['project6', 'project5']
             }
         };
 
@@ -2509,7 +2546,7 @@ function getCarouselLinkFor(index) {
 // === END CLICKABLE CAROUSEL CONFIG ===
 
     // Map des vignettes de la mosaïque (menu)
-    const projectsMosaicThumbs = {"project1": "oui.png", "project2": "monks paris.jpeg", "project3": "art explora.png", "project4": "unnamed.webp", "project5": "pk pas dans le 93 portfolio.png", "project6": "motion design.jpg", "project7": "étalonnage.png"};
+    const projectsMosaicThumbs = {"project1": "oui.png", "project2": "monks paris.jpeg", "project3": "art explora.png", "project4": "unnamed.webp", "project5": "pk pas dans le 93 portfolio.png", "project6": "motion design.jpg", "project7": "étalonnage.png", "project8": "channels4_profile.jpg"};
 let currentProject = null;
         let currentImageIndex = 0;
         let carouselInterval = null;
@@ -2987,7 +3024,7 @@ imageCarousel.appendChild(img);
             window.addEventListener('resize', handleScrollAnimation);
         });
         // Ordre séquentiel des projets pour la navigation (ajoute/modifie selon tes projects)
-        const projectOrder = ['project1', 'project2', 'project3', 'project4', 'project5', 'project6', 'project7'];
+        const projectOrder = ['project1', 'project2', 'project3', 'project4', 'project5', 'project6', 'project7', 'project8'];
 
         // Nouvelle fonction pour naviguer entre projets
         function navigateProject(direction) {
