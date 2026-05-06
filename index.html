@@ -12,7 +12,7 @@
         --carousel-image-height: 600px;
         --carousel-image-width-mobile: 480px;
         --carousel-image-height-mobile: 320px;
-        --related-block-top: 1080px;
+        --related-block-top: 1450px;
 
         /* Variables pour les flèches (ajustables ici) */
         --nav-circle-size: 40px;
@@ -911,6 +911,8 @@
             top: -400px;  /* Ajuste pour placer en dessous - change si besoin */
             left: 50px;
             text-align: center;
+            min-height: 95px;
+            z-index: 20;
         }
 
         .modal.show .modal-skills {
@@ -947,7 +949,7 @@
             background: rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            padding: 15px !important;
+            padding: 18px 20px 28px !important;
             border: 1px solid rgba(255, 255, 255, 0.1);
             opacity: 0;
             transform: translateY(30px);
@@ -956,6 +958,9 @@
             top: -528px;     /* Placé en dessous du bloc "Logiciels" */
             left: 460px;
             text-align: center;
+            min-height: 125px;
+            z-index: 20;
+            box-sizing: border-box;
         }
 
         .modal.show .modal-competences {
@@ -981,7 +986,7 @@
         .modal-competences .tech-stack {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px 8px;
             justify-content: center;
         }
 
@@ -1021,7 +1026,7 @@
           opacity: 0;
           transform: translateX(-50%) translateY(30px);
           transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s;
-          z-index: 10;
+          z-index: 5;
         }
 
         .modal.show .modal-additional-projects {
