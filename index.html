@@ -12,7 +12,7 @@
         --carousel-image-height: 600px;
         --carousel-image-width-mobile: 480px;
         --carousel-image-height-mobile: 320px;
-        --related-block-top: 900px;
+        --related-block-top: 1080px;
 
         /* Variables pour les flèches (ajustables ici) */
         --nav-circle-size: 40px;
@@ -1008,10 +1008,11 @@
         .modal-additional-projects {
           position: absolute;           /* ← CLÉ : Sort du flux */
           top: var(--related-block-top);                   /* ← Ajuste ICI pour la hauteur fixe */
-          left: 25%;                    /* ← Centre horizontalement */
-          transform: translateX(-50%);  /* ← Centre parfait */
-          width: 100%;
+          left: 50%;                    /* Centre horizontalement */
+          transform: translateX(-50%);  /* Centre parfait */
+          width: calc(100% - 80px);
           max-width: 1000px;
+          box-sizing: border-box;
           padding: 40px;
           background: rgba(0, 0, 0, 0.1);
           backdrop-filter: blur(10px);
@@ -1025,7 +1026,7 @@
 
         .modal.show .modal-additional-projects {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(-50%) translateY(0);
         }
 
         .modal-additional-projects h2 {
@@ -1660,12 +1661,16 @@
     order: 5;
     position: relative;
     top: 0;
-    left: 0%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: none;
     width: 90%;
     max-width: 1000px;
     margin-top: 60px;
     padding: 40px 20px;
+  }
+
+  .modal.show .modal-additional-projects {
+    transform: none;
   }
 
   .close-modal {
@@ -1776,9 +1781,9 @@
     padding-top: 60px; /* tu peux ajuster cette valeur : + = plus bas, - = moins bas */
   }
 
-  /* On remonte les PROJETS LIÉS pour qu’ils gardent leur position d’avant */
+  /* Les PROJETS LIÉS restent sous les blocs logiciels/compétences */
   .modal-additional-projects {
-    margin-top: -60px; /* on compense exactement le padding ajouté */
+    margin-top: 0;
   }
 
   /* On remonte les FLÈCHES pour qu’elles gardent leur vertical d’origine */
