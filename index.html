@@ -677,11 +677,6 @@
             position: relative;
         }
 
-        .portfolio-image.booska-p-image {
-            background-size: contain !important;
-            background-color: #f1f1f1;
-        }
-
         .portfolio-item:hover .portfolio-image {
             transform: scale(1.1);
         }
@@ -2152,7 +2147,7 @@
     </div>
     </div>
     <div class="portfolio-grid">
-        <div class="portfolio-item" onclick="openModal('project1')">
+        <div class="portfolio-item tall-item" onclick="openModal('project1')">
       <div class="portfolio-image" style="background-image: url('oui.png');"></div>
       <div class="portfolio-overlay">
        <div class="portfolio-title">
@@ -2160,17 +2155,6 @@
        </div>
        <div class="portfolio-category">
         Création De Contenu Média
-       </div>
-      </div>
-     </div>
-     <div class="portfolio-item" onclick="openModal('project8')">
-      <div class="portfolio-image booska-p-image" style="background-image: url('channels4_profile.jpg');"></div>
-      <div class="portfolio-overlay">
-       <div class="portfolio-title">
-        Booska-P
-       </div>
-       <div class="portfolio-category">
-        social média éditor & journalism
        </div>
       </div>
      </div>
@@ -2491,21 +2475,6 @@
                     'Gestion de Flux Vidéo'
                 ],
                 relatedProjects: ['project1', 'project6']  // Exemple pour project7
-            },
-            project8: {
-                title: "Booska-P",
-                description: "Projet de social media editing et de journalisme autour de Booska-P, avec un travail de veille, de rédaction et d’adaptation des contenus aux réseaux sociaux.",
-                images: [
-                    "channels4_profile.jpg"
-                ],
-                softwares: [],
-                competences: [
-                    'Social Media Editing',
-                    'Journalisme',
-                    'Rédaction',
-                    'Veille Culturelle'
-                ],
-                relatedProjects: ['project1', 'project3']
             }
         };
 
@@ -2530,7 +2499,7 @@ function getCarouselLinkFor(index) {
 // === END CLICKABLE CAROUSEL CONFIG ===
 
     // Map des vignettes de la mosaïque (menu)
-    const projectsMosaicThumbs = {"project1": "oui.png", "project2": "monks paris.jpeg", "project3": "art explora.png", "project4": "unnamed.webp", "project5": "pk pas dans le 93 portfolio.png", "project6": "motion design.jpg", "project7": "étalonnage.png", "project8": "channels4_profile.jpg"};
+    const projectsMosaicThumbs = {"project1": "oui.png", "project2": "monks paris.jpeg", "project3": "art explora.png", "project4": "unnamed.webp", "project5": "pk pas dans le 93 portfolio.png", "project6": "motion design.jpg", "project7": "étalonnage.png"};
 let currentProject = null;
         let currentImageIndex = 0;
         let carouselInterval = null;
@@ -3008,7 +2977,7 @@ imageCarousel.appendChild(img);
             window.addEventListener('resize', handleScrollAnimation);
         });
         // Ordre séquentiel des projets pour la navigation (ajoute/modifie selon tes projects)
-        const projectOrder = ['project1', 'project2', 'project3', 'project4', 'project5', 'project6', 'project7', 'project8'];
+        const projectOrder = ['project1', 'project2', 'project3', 'project4', 'project5', 'project6', 'project7'];
 
         // Nouvelle fonction pour naviguer entre projets
         function navigateProject(direction) {
