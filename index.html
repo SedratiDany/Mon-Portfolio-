@@ -682,6 +682,10 @@
             background-color: #f1f1f1;
         }
 
+        .portfolio-image.vaybzs-image-position {
+            background-position: center 18% !important;
+        }
+
         .portfolio-item:hover .portfolio-image {
             transform: scale(1.1);
         }
@@ -2163,7 +2167,7 @@
     </div>
     <div class="portfolio-grid">
         <div class="portfolio-item" onclick="openModal('project1')">
-      <div class="portfolio-image" style="background-image: url('oui.png');"></div>
+      <div class="portfolio-image vaybzs-image-position" style="background-image: url('oui.png');"></div>
       <div class="portfolio-overlay">
        <div class="portfolio-title">
         Vaybzs
@@ -2180,7 +2184,7 @@
         Booska-P
        </div>
        <div class="portfolio-category">
-        social media editor & journalist
+        social média éditor & journalism
        </div>
       </div>
      </div>
@@ -2357,6 +2361,11 @@
                     "vaybzs 2.jpg",
                     "vaybzs 1.png",
                     "vaybzs 3.png"
+                ],
+                imagePositions: [
+                    "center 18%",
+                    "center center",
+                    "center center"
                 ],
                 softwares: [ // Logiciels personnalisés pour ce projet
                     { abbr: 'Ae', class: 'after-effects', title: 'After Effects' },
@@ -2547,6 +2556,7 @@ function getCarouselLinkFor(index) {
 
     // Map des vignettes de la mosaïque (menu)
     const projectsMosaicThumbs = {"project1": "oui.png", "project2": "monks paris.jpeg", "project3": "art explora.png", "project4": "unnamed.webp", "project5": "pk pas dans le 93 portfolio.png", "project6": "motion design.jpg", "project7": "étalonnage.png", "project8": "channels4_profile.jpg"};
+    const projectsMosaicPositions = {"project1": "center 18%"};
 let currentProject = null;
         let currentImageIndex = 0;
         let carouselInterval = null;
@@ -2730,6 +2740,9 @@ function toggleMenu() {
             const img = document.createElement('div');
             img.className = 'carousel-image';
             img.style.backgroundImage = `url("${imageSrc}")`;
+            if (Array.isArray(currentProject.imagePositions) && currentProject.imagePositions[index]) {
+                img.style.backgroundPosition = currentProject.imagePositions[index];
+            }
             img.dataset.index = index;
             
             if (index === 0) img.classList.add('center');
@@ -2780,18 +2793,18 @@ imageCarousel.appendChild(img);
                 if (mosaic) {
                     imageDiv.style.backgroundImage = `url("${mosaic}")`;
                     imageDiv.style.backgroundSize = 'cover';
-                    imageDiv.style.backgroundPosition = 'center';
+                    imageDiv.style.backgroundPosition = projectsMosaicPositions[relatedId] || 'center';
                 } else {
                     const mosaic = projectsMosaicThumbs[relatedId] || null;
                 const firstImage = (relatedProject.images && relatedProject.images.length) ? relatedProject.images[0] : null;
                 if (mosaic) {
                     imageDiv.style.backgroundImage = `url("${mosaic}")`;
                     imageDiv.style.backgroundSize = 'cover';
-                    imageDiv.style.backgroundPosition = 'center';
+                    imageDiv.style.backgroundPosition = projectsMosaicPositions[relatedId] || 'center';
                 } else if (firstImage) {
                     imageDiv.style.backgroundImage = `url("${firstImage}")`;
                     imageDiv.style.backgroundSize = 'cover';
-                    imageDiv.style.backgroundPosition = 'center';
+                    imageDiv.style.backgroundPosition = (Array.isArray(relatedProject.imagePositions) && relatedProject.imagePositions[0]) ? relatedProject.imagePositions[0] : 'center';
                 } else {
                     imageDiv.style.backgroundImage = `linear-gradient(45deg, #ff9a9e 0%, #fecfef 100%)`;
                 }
